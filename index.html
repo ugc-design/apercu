@@ -58,21 +58,37 @@
 
     .btn {
       display: inline-block;
-      padding: 0.875rem 1.75rem;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--white);
+      padding: 0.75rem 1.25rem;
       border-radius: 50px;
       font-weight: 600;
       border: none;
       cursor: pointer;
       transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
       text-align: center;
+      font-size: 0.95rem;
     }
 
-    .btn:hover {
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    }
+
+    .btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 16px rgba(255, 107, 53, 0.45);
+    }
+
+    .btn-secondary {
+      background: var(--light-gray);
+      color: var(--dark);
+      border: 1px solid var(--light-gray);
+    }
+
+    .btn-secondary:hover {
+      background: var(--light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
     }
 
     section {
@@ -275,11 +291,15 @@
       flex-grow: 1;
     }
 
+    .card-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
     .card .btn {
-      width: 100%;
-      text-align: center;
-      padding: 0.75rem;
-      font-size: 1rem;
+      flex: 1;
+      min-width: 120px;
     }
 
     .contact {
@@ -338,6 +358,9 @@
       .hero h1 { font-size: 2.5rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
       .lang-toggle { order: 3; margin-top: 1rem; }
+      .card-actions {
+        flex-direction: column;
+      }
     }
 
     body[dir="rtl"] .header-inner {
@@ -391,7 +414,7 @@
       </div>
 
       <div class="portfolio-grid">
-        <!-- Template 1 -->
+        <!-- Template 1: ugc1 -->
         <div class="card" data-category="landing">
           <div class="card-img">
             <img src="https://placehold.co/300x533/ffe8d6/d8f3dc?text=UGC+Maroc+Landing" alt="Aperçu UGC Maroc Landing">
@@ -402,11 +425,14 @@
                data-ar="صفحة هبوط عالية التحويل للمنشئين المغاربة. تتضمن شهادات، خدمات، ودعوة واضحة للاتصال.">
               Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.
             </p>
-            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle UGC Maroc Landing" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+            <div class="card-actions">
+              <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle UGC Maroc Landing" class="btn btn-primary" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+              <a href="https://ugc-design.github.io/ugc1" target="_blank" class="btn btn-secondary" data-fr="Aperçu" data-ar="معاينة">Aperçu</a>
+            </div>
           </div>
         </div>
 
-        <!-- Template 2 -->
+        <!-- Template 2: ugc3 -->
         <div class="card" data-category="portfolio">
           <div class="card-img">
             <img src="https://placehold.co/300x533/d8f3dc/1b4332?text=Fanny+UGC+Portfolio" alt="Aperçu Portfolio Fanny UGC">
@@ -417,11 +443,14 @@
                data-ar="معرض بصري وأنيق للمنشئين. يحتوي على فئات، أسعار، معدات، وشهادات عملاء.">
               Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.
             </p>
-            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Portfolio Fanny UGC" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+            <div class="card-actions">
+              <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Portfolio Fanny UGC" class="btn btn-primary" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+              <a href="https://ugc-design.github.io/ugc3" target="_blank" class="btn btn-secondary" data-fr="Aperçu" data-ar="معاينة">Aperçu</a>
+            </div>
           </div>
         </div>
 
-        <!-- Template 3 -->
+        <!-- Template 3: ugc2 / digital-service-fr-ar -->
         <div class="card" data-category="service">
           <div class="card-img">
             <img src="https://placehold.co/300x533/e0f7fa/0891b2?text=Hub+Services+Numériques" alt="Aperçu Hub Services Numériques">
@@ -432,11 +461,14 @@
                data-ar="نموذج متعدد الخدمات للوكالات. أقسام حسب المنصات (فيسبوك، إنستغرام، تيك توك) وشهادات العملاء.">
               Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients.
             </p>
-            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Hub Services Numériques" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+            <div class="card-actions">
+              <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Hub Services Numériques" class="btn btn-primary" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+              <a href="https://ugc-design.github.io/digital-service-fr-ar" target="_blank" class="btn btn-secondary" data-fr="Aperçu" data-ar="معاينة">Aperçu</a>
+            </div>
           </div>
         </div>
 
-        <!-- Template 4 -->
+        <!-- Template 4: ugc4 -->
         <div class="card" data-category="landing">
           <div class="card-img">
             <img src="https://placehold.co/300x533/fdf2e9/991b1b?text=Atlas+Créations" alt="Aperçu Atlas Créations">
@@ -447,11 +479,14 @@
                data-ar="منصة ثقافية تُبرز الفنانين المغاربة من خلال محتوى يُنتجه المجتمع.">
               Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté.
             </p>
-            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Atlas Créations" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+            <div class="card-actions">
+              <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Atlas Créations" class="btn btn-primary" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+              <a href="https://ugc-design.github.io/ugc4" target="_blank" class="btn btn-secondary" data-fr="Aperçu" data-ar="معاينة">Aperçu</a>
+            </div>
           </div>
         </div>
 
-        <!-- Template 5 -->
+        <!-- Template 5: ugc6 -->
         <div class="card" data-category="portfolio">
           <div class="card-img">
             <img src="https://placehold.co/300x533/f0fdf4/166534?text=Profil+Créateur+UGC" alt="Aperçu Profil Créateur UGC">
@@ -462,11 +497,14 @@
                data-ar="نموذج هوية شخصية للمنشئين. يحتوي على إحصائيات، شهادات، وعروض الخدمات.">
               Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services.
             </p>
-            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Profil Créateur UGC" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+            <div class="card-actions">
+              <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Profil Créateur UGC" class="btn btn-primary" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+              <a href="https://ugc-design.github.io/ugc6" target="_blank" class="btn btn-secondary" data-fr="Aperçu" data-ar="معاينة">Aperçu</a>
+            </div>
           </div>
         </div>
 
-        <!-- Template 6 -->
+        <!-- Template 6: digital-service-ar-en -->
         <div class="card" data-category="service">
           <div class="card-img">
             <img src="https://placehold.co/300x533/f0f9ff/1e40af?text=Agence+Bilingue" alt="Aperçu Agence UGC Bilingue">
@@ -477,11 +515,14 @@
                data-ar="نموذج ثنائي اللغة (فرنسي/عربي) مصمم للوكالات التي تستهدف السوق المغاربي.">
               Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain.
             </p>
-            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Agence UGC Bilingue" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+            <div class="card-actions">
+              <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Agence UGC Bilingue" class="btn btn-primary" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+              <a href="https://ugc-design.github.io/digital-service-ar-en" target="_blank" class="btn btn-secondary" data-fr="Aperçu" data-ar="معاينة">Aperçu</a>
+            </div>
           </div>
         </div>
 
-        <!-- Template 7 -->
+        <!-- Template 7: ugc5 -->
         <div class="card" data-category="landing">
           <div class="card-img">
             <img src="https://placehold.co/300x533/fff7ed/92400e?text=Campagne+Beauté" alt="Aperçu Campagne Beauté UGC">
@@ -492,11 +533,14 @@
                data-ar="صفحة مخصصة لعلامات التجميل مع معاينات فيديو، إحصائيات تحويل، وشهادات.">
               Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages.
             </p>
-            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Campagne Beauté UGC" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+            <div class="card-actions">
+              <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Campagne Beauté UGC" class="btn btn-primary" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+              <a href="https://ugc-design.github.io/ugc5" target="_blank" class="btn btn-secondary" data-fr="Aperçu" data-ar="معاينة">Aperçu</a>
+            </div>
           </div>
         </div>
 
-        <!-- Template 8 -->
+        <!-- Template 8: ugc2 (réutilisé comme Food & Lifestyle) -->
         <div class="card" data-category="portfolio">
           <div class="card-img">
             <img src="https://placehold.co/300x533/fef3c7/d97706?text=Food+%26+Lifestyle" alt="Aperçu Food & Lifestyle UGC">
@@ -507,7 +551,10 @@
                data-ar="نموذج حيوي للمنشئين المتخصصين في الطعام وأسلوب الحياة. محتوى منظم حسب الفئات الموضوعية.">
               Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques.
             </p>
-            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Food & Lifestyle UGC" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+            <div class="card-actions">
+              <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Food & Lifestyle UGC" class="btn btn-primary" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+              <a href="https://ugc-design.github.io/ugc2" target="_blank" class="btn btn-secondary" data-fr="Aperçu" data-ar="معاينة">Aperçu</a>
+            </div>
           </div>
         </div>
       </div>
@@ -558,6 +605,7 @@
         "UGC Maroc Landing": "UGC Maroc Landing",
         "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.": "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.",
         "Demander ce modèle": "Demander ce modèle",
+        "Aperçu": "Aperçu",
         "Portfolio Fanny UGC": "Portfolio Fanny UGC",
         "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.": "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.",
         "Hub Services Numériques": "Hub Services Numériques",
@@ -592,6 +640,7 @@
         "UGC Maroc Landing": "صفحة هبوط UGC المغرب",
         "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.": "صفحة هبوط عالية التحويل للمنشئين المغاربة. تتضمن شهادات، خدمات، ودعوة واضحة للاتصال.",
         "Demander ce modèle": "اطلب هذا النموذج",
+        "Aperçu": "معاينة",
         "Portfolio Fanny UGC": "معرض أعمال فاني UGC",
         "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.": "معرض بصري وأنيق للمنشئين. يحتوي على فئات، أسعار، معدات، وشهادات عملاء.",
         "Hub Services Numériques": "مركز الخدمات الرقمية",
