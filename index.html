@@ -243,14 +243,18 @@
     }
 
     .card-img {
-      height: 180px;
-      background: linear-gradient(135deg, #ffe8d6, #d8f3dc);
+      height: 360px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gray);
-      font-size: 0.875rem;
-      font-weight: 500;
+      background-color: #f1f5f9;
+      overflow: hidden;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .card-content {
@@ -389,7 +393,9 @@
       <div class="portfolio-grid">
         <!-- Template 1 -->
         <div class="card" data-category="landing">
-          <div class="card-img" data-fr="Aperçu : UGC Maroc Landing" data-ar="معاينة: صفحة هبوط UGC المغرب">Aperçu : UGC Maroc Landing</div>
+          <div class="card-img">
+            <img src="https://placehold.co/300x533/ffe8d6/d8f3dc?text=UGC+Maroc+Landing" alt="Aperçu UGC Maroc Landing">
+          </div>
           <div class="card-content">
             <h3 data-fr="UGC Maroc Landing" data-ar="صفحة هبوط UGC المغرب">UGC Maroc Landing</h3>
             <p data-fr="Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair." 
@@ -402,7 +408,9 @@
 
         <!-- Template 2 -->
         <div class="card" data-category="portfolio">
-          <div class="card-img" data-fr="Aperçu : Portfolio Fanny UGC" data-ar="معاينة: معرض أعمال فاني UGC">Aperçu : Portfolio Fanny UGC</div>
+          <div class="card-img">
+            <img src="https://placehold.co/300x533/d8f3dc/1b4332?text=Fanny+UGC+Portfolio" alt="Aperçu Portfolio Fanny UGC">
+          </div>
           <div class="card-content">
             <h3 data-fr="Portfolio Fanny UGC" data-ar="معرض أعمال فاني UGC">Portfolio Fanny UGC</h3>
             <p data-fr="Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages." 
@@ -415,7 +423,9 @@
 
         <!-- Template 3 -->
         <div class="card" data-category="service">
-          <div class="card-img" data-fr="Aperçu : Hub Services Numériques" data-ar="معاينة: مركز الخدمات الرقمية">Aperçu : Hub Services Numériques</div>
+          <div class="card-img">
+            <img src="https://placehold.co/300x533/e0f7fa/0891b2?text=Hub+Services+Numériques" alt="Aperçu Hub Services Numériques">
+          </div>
           <div class="card-content">
             <h3 data-fr="Hub Services Numériques" data-ar="مركز الخدمات الرقمية">Hub Services Numériques</h3>
             <p data-fr="Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients." 
@@ -428,7 +438,9 @@
 
         <!-- Template 4 -->
         <div class="card" data-category="landing">
-          <div class="card-img" data-fr="Aperçu : Atlas Créations" data-ar="معاينة: أطلس للإبداع">Aperçu : Atlas Créations</div>
+          <div class="card-img">
+            <img src="https://placehold.co/300x533/fdf2e9/991b1b?text=Atlas+Créations" alt="Aperçu Atlas Créations">
+          </div>
           <div class="card-content">
             <h3 data-fr="Atlas Créations" data-ar="أطلس للإبداع">Atlas Créations</h3>
             <p data-fr="Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté." 
@@ -441,7 +453,9 @@
 
         <!-- Template 5 -->
         <div class="card" data-category="portfolio">
-          <div class="card-img" data-fr="Aperçu : Profil Créateur UGC" data-ar="معاينة: ملف منشئ المحتوى">Aperçu : Profil Créateur UGC</div>
+          <div class="card-img">
+            <img src="https://placehold.co/300x533/f0fdf4/166534?text=Profil+Créateur+UGC" alt="Aperçu Profil Créateur UGC">
+          </div>
           <div class="card-content">
             <h3 data-fr="Profil Créateur UGC" data-ar="ملف منشئ المحتوى">Profil Créateur UGC</h3>
             <p data-fr="Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services." 
@@ -454,7 +468,9 @@
 
         <!-- Template 6 -->
         <div class="card" data-category="service">
-          <div class="card-img" data-fr="Aperçu : Agence UGC Bilingue" data-ar="معاينة: وكالة UGC ثنائية اللغة">Aperçu : Agence UGC Bilingue</div>
+          <div class="card-img">
+            <img src="https://placehold.co/300x533/f0f9ff/1e40af?text=Agence+Bilingue" alt="Aperçu Agence UGC Bilingue">
+          </div>
           <div class="card-content">
             <h3 data-fr="Agence UGC Bilingue" data-ar="وكالة UGC ثنائية اللغة">Agence UGC Bilingue</h3>
             <p data-fr="Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain." 
@@ -467,7 +483,9 @@
 
         <!-- Template 7 -->
         <div class="card" data-category="landing">
-          <div class="card-img" data-fr="Aperçu : Campagne Beauté UGC" data-ar="معاينة: حملة الجمال">Aperçu : Campagne Beauté UGC</div>
+          <div class="card-img">
+            <img src="https://placehold.co/300x533/fff7ed/92400e?text=Campagne+Beauté" alt="Aperçu Campagne Beauté UGC">
+          </div>
           <div class="card-content">
             <h3 data-fr="Campagne Beauté UGC" data-ar="حملة الجمال UGC">Campagne Beauté UGC</h3>
             <p data-fr="Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages." 
@@ -480,7 +498,9 @@
 
         <!-- Template 8 -->
         <div class="card" data-category="portfolio">
-          <div class="card-img" data-fr="Aperçu : UGC Food & Lifestyle" data-ar="معاينة: أسلوب الحياة والطعام">Aperçu : UGC Food & Lifestyle</div>
+          <div class="card-img">
+            <img src="https://placehold.co/300x533/fef3c7/d97706?text=Food+%26+Lifestyle" alt="Aperçu Food & Lifestyle UGC">
+          </div>
           <div class="card-content">
             <h3 data-fr="Food & Lifestyle UGC" data-ar="الطعام وأسلوب الحياة UGC">Food & Lifestyle UGC</h3>
             <p data-fr="Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques." 
@@ -535,29 +555,21 @@
         "Tous": "Tous",
         "Page d’Accueil": "Page d’Accueil",
         "Service": "Service",
-        "Aperçu : UGC Maroc Landing": "Aperçu : UGC Maroc Landing",
         "UGC Maroc Landing": "UGC Maroc Landing",
         "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.": "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.",
         "Demander ce modèle": "Demander ce modèle",
-        "Aperçu : Portfolio Fanny UGC": "Aperçu : Portfolio Fanny UGC",
         "Portfolio Fanny UGC": "Portfolio Fanny UGC",
         "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.": "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.",
-        "Aperçu : Hub Services Numériques": "Aperçu : Hub Services Numériques",
         "Hub Services Numériques": "Hub Services Numériques",
         "Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients.": "Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients.",
-        "Aperçu : Atlas Créations": "Aperçu : Atlas Créations",
         "Atlas Créations": "Atlas Créations",
         "Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté.": "Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté.",
-        "Aperçu : Profil Créateur UGC": "Aperçu : Profil Créateur UGC",
         "Profil Créateur UGC": "Profil Créateur UGC",
         "Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services.": "Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services.",
-        "Aperçu : Agence UGC Bilingue": "Aperçu : Agence UGC Bilingue",
         "Agence UGC Bilingue": "Agence UGC Bilingue",
         "Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain.": "Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain.",
-        "Aperçu : Campagne Beauté UGC": "Aperçu : Campagne Beauté UGC",
         "Campagne Beauté UGC": "Campagne Beauté UGC",
         "Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages.": "Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages.",
-        "Aperçu : UGC Food & Lifestyle": "Aperçu : UGC Food & Lifestyle",
         "Food & Lifestyle UGC": "Food & Lifestyle UGC",
         "Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques.": "Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques.",
         "Obtenez Votre Modèle Aujourd’hui": "Obtenez Votre Modèle Aujourd’hui",
@@ -577,29 +589,21 @@
         "Tous": "الكل",
         "Page d’Accueil": "صفحة هبوط",
         "Service": "خدمات",
-        "Aperçu : UGC Maroc Landing": "معاينة: صفحة هبوط UGC المغرب",
         "UGC Maroc Landing": "صفحة هبوط UGC المغرب",
         "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.": "صفحة هبوط عالية التحويل للمنشئين المغاربة. تتضمن شهادات، خدمات، ودعوة واضحة للاتصال.",
         "Demander ce modèle": "اطلب هذا النموذج",
-        "Aperçu : Portfolio Fanny UGC": "معاينة: معرض أعمال فاني UGC",
         "Portfolio Fanny UGC": "معرض أعمال فاني UGC",
         "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.": "معرض بصري وأنيق للمنشئين. يحتوي على فئات، أسعار، معدات، وشهادات عملاء.",
-        "Aperçu : Hub Services Numériques": "معاينة: مركز الخدمات الرقمية",
         "Hub Services Numériques": "مركز الخدمات الرقمية",
         "Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients.": "نموذج متعدد الخدمات للوكالات. أقسام حسب المنصات (فيسبوك، إنستغرام، تيك توك) وشهادات العملاء.",
-        "Aperçu : Atlas Créations": "معاينة: أطلس للإبداع",
         "Atlas Créations": "أطلس للإبداع",
         "Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté.": "منصة ثقافية تُبرز الفنانين المغاربة من خلال محتوى يُنتجه المجتمع.",
-        "Aperçu : Profil Créateur UGC": "معاينة: ملف منشئ المحتوى",
         "Profil Créateur UGC": "ملف منشئ المحتوى",
         "Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services.": "نموذج هوية شخصية للمنشئين. يحتوي على إحصائيات، شهادات، وعروض الخدمات.",
-        "Aperçu : Agence UGC Bilingue": "معاينة: وكالة UGC ثنائية اللغة",
         "Agence UGC Bilingue": "وكالة UGC ثنائية اللغة",
         "Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain.": "نموذج ثنائي اللغة (فرنسي/عربي) مصمم للوكالات التي تستهدف السوق المغاربي.",
-        "Aperçu : Campagne Beauté UGC": "معاينة: حملة الجمال",
         "Campagne Beauté UGC": "حملة الجمال UGC",
         "Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages.": "صفحة مخصصة لعلامات التجميل مع معاينات فيديو، إحصائيات تحويل، وشهادات.",
-        "Aperçu : UGC Food & Lifestyle": "معاينة: أسلوب الحياة والط الطعام",
         "Food & Lifestyle UGC": "الطعام وأسلوب الحياة UGC",
         "Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques.": "نموذج حيوي للمنشئين المتخصصين في الطعام وأسلوب الحياة. محتوى منظم حسب الفئات الموضوعية.",
         "Obtenez Votre Modèle Aujourd’hui": "احصل على نموذجك اليوم",
@@ -624,6 +628,30 @@
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         switchLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const category = button.dataset.category;
+        document.querySelectorAll('.card').forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.display = 'none';
+          }
+        });
       });
     });
   </script>
