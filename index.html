@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio de Modèles UGC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #ff6b35;
+      --primary-light: #ff8c5a;
+      --primary-dark: #e05a2a;
+      --secondary: #06d6a0;
+      --accent: #118ab2;
+      --light: #f8f9fa;
+      --dark: #1a1a1a;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --white: #ffffff;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --radius: 16px;
+      --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      scroll-behavior: smooth;
+    }
+
+    body[dir="rtl"] {
+      font-family: 'Tajawal', system-ui, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: min(92%, 1300px);
+      margin-inline: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(255, 107, 53, 0.45);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--gray);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+    }
+
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .lang-toggle {
+      display: flex;
+      gap: 0.75rem;
+      background: var(--white);
+      padding: 0.25rem;
+      border-radius: 50px;
+      box-shadow: var(--shadow);
+    }
+
+    .lang-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      background: transparent;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 7rem 0 5rem;
+      background: linear-gradient(135deg, #fff9f5 0%, #f0fdfa 100%);
+      border-radius: 0 0 40px 40px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.25rem;
+      color: var(--dark);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto 2.5rem;
+      color: var(--gray);
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.625rem 1.25rem;
+      background: var(--white);
+      border: 2px solid var(--light-gray);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+      color: var(--gray);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.25rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-img {
+      height: 180px;
+      background: linear-gradient(135deg, #ffe8d6, #d8f3dc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.375rem;
+      color: var(--dark);
+    }
+
+    .card p {
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .card .btn {
+      width: 100%;
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #e0f7fa 0%, #fff3e0 100%);
+      text-align: center;
+      border-radius: 40px 40px 0 0;
+    }
+
+    .contact-inner {
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .contact h2 {
+      margin-bottom: 1.25rem;
+    }
+
+    .contact p {
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+    }
+
+    .contact-btn {
+      font-size: 1.25rem;
+      padding: 1.125rem 2.5rem;
+      background: linear-gradient(135deg, var(--secondary), #05b88a);
+      box-shadow: 0 4px 15px rgba(6, 214, 160, 0.4);
+    }
+
+    .contact-btn:hover {
+      box-shadow: 0 6px 20px rgba(6, 214, 160, 0.55);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 0 1.5rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      margin-top: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      h2 { font-size: 2rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .lang-toggle { order: 3; margin-top: 1rem; }
+    }
+
+    body[dir="rtl"] .header-inner {
+      flex-direction: row-reverse;
+    }
+
+    body[dir="rtl"] .nav-links a::after {
+      left: auto;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo" data-fr="Modèles UGC" data-ar="نماذج المحتوى">Modèles UGC</a>
+      <ul class="nav-links">
+        <li><a href="#home" data-fr="Accueil" data-ar="الرئيسية">Accueil</a></li>
+        <li><a href="#portfolio" data-fr="Portfolio" data-ar="المعرض">Portfolio</a></li>
+        <li><a href="#contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="ar">عربي</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h1 data-fr="Modèles de Sites Web UGC Premium" data-ar="نماذج مواقع المحتوى المُنشأ من المستخدمين الاحترافية">Modèles de Sites Web UGC Premium</h1>
+      <p data-fr="Des modèles hautement convertissants, conçus pour les créateurs de contenu et les marques ciblant le marché marocain et international." 
+         data-ar="نماذج عالية التحويل، مصممة خصيصًا للعلامات التجارية والمنشئين الذين يستهدفون السوق المغربي والدولي.">
+        Des modèles hautement convertissants, conçus pour les créateurs de contenu et les marques ciblant le marché marocain et international.
+      </p>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 data-fr="Collection de Modèles" data-ar="مجموعة النماذج">Collection de Modèles</h2>
+
+      <div class="filters">
+        <button class="filter-btn active" data-category="all" data-fr="Tous" data-ar="الكل">Tous</button>
+        <button class="filter-btn" data-category="landing" data-fr="Page d’Accueil" data-ar="صفحة هبوط">Page d’Accueil</button>
+        <button class="filter-btn" data-category="portfolio" data-fr="Portfolio" data-ar="معرض الأعمال">Portfolio</button>
+        <button class="filter-btn" data-category="service" data-fr="Service" data-ar="خدمات">Service</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Template 1 -->
+        <div class="card" data-category="landing">
+          <div class="card-img" data-fr="Aperçu : UGC Maroc Landing" data-ar="معاينة: صفحة هبوط UGC المغرب">Aperçu : UGC Maroc Landing</div>
+          <div class="card-content">
+            <h3 data-fr="UGC Maroc Landing" data-ar="صفحة هبوط UGC المغرب">UGC Maroc Landing</h3>
+            <p data-fr="Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair." 
+               data-ar="صفحة هبوط عالية التحويل للمنشئين المغاربة. تتضمن شهادات، خدمات، ودعوة واضحة للاتصال.">
+              Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.
+            </p>
+            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle UGC Maroc Landing" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+          </div>
+        </div>
+
+        <!-- Template 2 -->
+        <div class="card" data-category="portfolio">
+          <div class="card-img" data-fr="Aperçu : Portfolio Fanny UGC" data-ar="معاينة: معرض أعمال فاني UGC">Aperçu : Portfolio Fanny UGC</div>
+          <div class="card-content">
+            <h3 data-fr="Portfolio Fanny UGC" data-ar="معرض أعمال فاني UGC">Portfolio Fanny UGC</h3>
+            <p data-fr="Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages." 
+               data-ar="معرض بصري وأنيق للمنشئين. يحتوي على فئات، أسعار، معدات، وشهادات عملاء.">
+              Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.
+            </p>
+            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Portfolio Fanny UGC" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+          </div>
+        </div>
+
+        <!-- Template 3 -->
+        <div class="card" data-category="service">
+          <div class="card-img" data-fr="Aperçu : Hub Services Numériques" data-ar="معاينة: مركز الخدمات الرقمية">Aperçu : Hub Services Numériques</div>
+          <div class="card-content">
+            <h3 data-fr="Hub Services Numériques" data-ar="مركز الخدمات الرقمية">Hub Services Numériques</h3>
+            <p data-fr="Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients." 
+               data-ar="نموذج متعدد الخدمات للوكالات. أقسام حسب المنصات (فيسبوك، إنستغرام، تيك توك) وشهادات العملاء.">
+              Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients.
+            </p>
+            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Hub Services Numériques" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+          </div>
+        </div>
+
+        <!-- Template 4 -->
+        <div class="card" data-category="landing">
+          <div class="card-img" data-fr="Aperçu : Atlas Créations" data-ar="معاينة: أطلس للإبداع">Aperçu : Atlas Créations</div>
+          <div class="card-content">
+            <h3 data-fr="Atlas Créations" data-ar="أطلس للإبداع">Atlas Créations</h3>
+            <p data-fr="Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté." 
+               data-ar="منصة ثقافية تُبرز الفنانين المغاربة من خلال محتوى يُنتجه المجتمع.">
+              Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté.
+            </p>
+            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Atlas Créations" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+          </div>
+        </div>
+
+        <!-- Template 5 -->
+        <div class="card" data-category="portfolio">
+          <div class="card-img" data-fr="Aperçu : Profil Créateur UGC" data-ar="معاينة: ملف منشئ المحتوى">Aperçu : Profil Créateur UGC</div>
+          <div class="card-content">
+            <h3 data-fr="Profil Créateur UGC" data-ar="ملف منشئ المحتوى">Profil Créateur UGC</h3>
+            <p data-fr="Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services." 
+               data-ar="نموذج هوية شخصية للمنشئين. يحتوي على إحصائيات، شهادات، وعروض الخدمات.">
+              Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services.
+            </p>
+            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Profil Créateur UGC" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+          </div>
+        </div>
+
+        <!-- Template 6 -->
+        <div class="card" data-category="service">
+          <div class="card-img" data-fr="Aperçu : Agence UGC Bilingue" data-ar="معاينة: وكالة UGC ثنائية اللغة">Aperçu : Agence UGC Bilingue</div>
+          <div class="card-content">
+            <h3 data-fr="Agence UGC Bilingue" data-ar="وكالة UGC ثنائية اللغة">Agence UGC Bilingue</h3>
+            <p data-fr="Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain." 
+               data-ar="نموذج ثنائي اللغة (فرنسي/عربي) مصمم للوكالات التي تستهدف السوق المغاربي.">
+              Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain.
+            </p>
+            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Agence UGC Bilingue" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+          </div>
+        </div>
+
+        <!-- Template 7 -->
+        <div class="card" data-category="landing">
+          <div class="card-img" data-fr="Aperçu : Campagne Beauté UGC" data-ar="معاينة: حملة الجمال">Aperçu : Campagne Beauté UGC</div>
+          <div class="card-content">
+            <h3 data-fr="Campagne Beauté UGC" data-ar="حملة الجمال UGC">Campagne Beauté UGC</h3>
+            <p data-fr="Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages." 
+               data-ar="صفحة مخصصة لعلامات التجميل مع معاينات فيديو، إحصائيات تحويل، وشهادات.">
+              Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages.
+            </p>
+            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Campagne Beauté UGC" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+          </div>
+        </div>
+
+        <!-- Template 8 -->
+        <div class="card" data-category="portfolio">
+          <div class="card-img" data-fr="Aperçu : UGC Food & Lifestyle" data-ar="معاينة: أسلوب الحياة والطعام">Aperçu : UGC Food & Lifestyle</div>
+          <div class="card-content">
+            <h3 data-fr="Food & Lifestyle UGC" data-ar="الطعام وأسلوب الحياة UGC">Food & Lifestyle UGC</h3>
+            <p data-fr="Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques." 
+               data-ar="نموذج حيوي للمنشئين المتخصصين في الطعام وأسلوب الحياة. محتوى منظم حسب الفئات الموضوعية.">
+              Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques.
+            </p>
+            <a href="mailto:bonjour@ugcmaroc.ma?subject=Demande : Modèle Food & Lifestyle UGC" class="btn" data-fr="Demander ce modèle" data-ar="اطلب هذا النموذج">Demander ce modèle</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <h2 data-fr="Obtenez Votre Modèle Aujourd’hui" data-ar="احصل على نموذجك اليوم">Obtenez Votre Modèle Aujourd’hui</h2>
+        <p data-fr="Prêt à booster votre marque avec un modèle UGC performant ? Contactez-nous dès maintenant !" 
+           data-ar="مستعد لتعزيز علامتك بنموذج UGC فعّال؟ تواصل معنا الآن!">
+          Prêt à booster votre marque avec un modèle UGC performant ? Contactez-nous dès maintenant !
+        </p>
+        <a href="mailto:bonjour@ugcmaroc.ma?subject=Inquiry Portfolio Modèles UGC" class="btn contact-btn" data-fr="Me Contacter" data-ar="اتصل بي">Me Contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p data-fr="&copy; 2024 Portfolio de Modèles UGC. Conçu pour GitHub Pages." 
+         data-ar="&copy; 2024 معرض نماذج المحتوى. مصمم لموقع GitHub Pages.">
+        &copy; 2024 Portfolio de Modèles UGC. Conçu pour GitHub Pages.
+      </p>
+      <div class="footer-links">
+        <span data-fr="Contact : " data-ar="الاتصال: "></span>
+        <a href="mailto:bonjour@ugcmaroc.ma">bonjour@ugcmaroc.ma</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        "Modèles UGC": "Modèles UGC",
+        "Accueil": "Accueil",
+        "Portfolio": "Portfolio",
+        "Contact": "Contact",
+        "Modèles de Sites Web UGC Premium": "Modèles de Sites Web UGC Premium",
+        "Des modèles hautement convertissants, conçus pour les créateurs de contenu et les marques ciblant le marché marocain et international.": "Des modèles hautement convertissants, conçus pour les créateurs de contenu et les marques ciblant le marché marocain et international.",
+        "Collection de Modèles": "Collection de Modèles",
+        "Tous": "Tous",
+        "Page d’Accueil": "Page d’Accueil",
+        "Service": "Service",
+        "Aperçu : UGC Maroc Landing": "Aperçu : UGC Maroc Landing",
+        "UGC Maroc Landing": "UGC Maroc Landing",
+        "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.": "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.",
+        "Demander ce modèle": "Demander ce modèle",
+        "Aperçu : Portfolio Fanny UGC": "Aperçu : Portfolio Fanny UGC",
+        "Portfolio Fanny UGC": "Portfolio Fanny UGC",
+        "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.": "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.",
+        "Aperçu : Hub Services Numériques": "Aperçu : Hub Services Numériques",
+        "Hub Services Numériques": "Hub Services Numériques",
+        "Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients.": "Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients.",
+        "Aperçu : Atlas Créations": "Aperçu : Atlas Créations",
+        "Atlas Créations": "Atlas Créations",
+        "Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté.": "Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté.",
+        "Aperçu : Profil Créateur UGC": "Aperçu : Profil Créateur UGC",
+        "Profil Créateur UGC": "Profil Créateur UGC",
+        "Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services.": "Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services.",
+        "Aperçu : Agence UGC Bilingue": "Aperçu : Agence UGC Bilingue",
+        "Agence UGC Bilingue": "Agence UGC Bilingue",
+        "Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain.": "Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain.",
+        "Aperçu : Campagne Beauté UGC": "Aperçu : Campagne Beauté UGC",
+        "Campagne Beauté UGC": "Campagne Beauté UGC",
+        "Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages.": "Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages.",
+        "Aperçu : UGC Food & Lifestyle": "Aperçu : UGC Food & Lifestyle",
+        "Food & Lifestyle UGC": "Food & Lifestyle UGC",
+        "Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques.": "Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques.",
+        "Obtenez Votre Modèle Aujourd’hui": "Obtenez Votre Modèle Aujourd’hui",
+        "Prêt à booster votre marque avec un modèle UGC performant ? Contactez-nous dès maintenant !": "Prêt à booster votre marque avec un modèle UGC performant ? Contactez-nous dès maintenant !",
+        "Me Contacter": "Me Contacter",
+        "&copy; 2024 Portfolio de Modèles UGC. Conçu pour GitHub Pages.": "&copy; 2024 Portfolio de Modèles UGC. Conçu pour GitHub Pages.",
+        "Contact : ": "Contact : "
+      },
+      ar: {
+        "Modèles UGC": "نماذج المحتوى",
+        "Accueil": "الرئيسية",
+        "Portfolio": "المعرض",
+        "Contact": "اتصل بنا",
+        "Modèles de Sites Web UGC Premium": "نماذج مواقع المحتوى المُنشأ من المستخدمين الاحترافية",
+        "Des modèles hautement convertissants, conçus pour les créateurs de contenu et les marques ciblant le marché marocain et international.": "نماذج عالية التحويل، مصممة خصيصًا للعلامات التجارية والمنشئين الذين يستهدفون السوق المغربي والدولي.",
+        "Collection de Modèles": "مجموعة النماذج",
+        "Tous": "الكل",
+        "Page d’Accueil": "صفحة هبوط",
+        "Service": "خدمات",
+        "Aperçu : UGC Maroc Landing": "معاينة: صفحة هبوط UGC المغرب",
+        "UGC Maroc Landing": "صفحة هبوط UGC المغرب",
+        "Page d’atterrissage hautement convertissante pour les créateurs UGC marocains. Inclut témoignages, services et CTA clair.": "صفحة هبوط عالية التحويل للمنشئين المغاربة. تتضمن شهادات، خدمات، ودعوة واضحة للاتصال.",
+        "Demander ce modèle": "اطلب هذا النموذج",
+        "Aperçu : Portfolio Fanny UGC": "معاينة: معرض أعمال فاني UGC",
+        "Portfolio Fanny UGC": "معرض أعمال فاني UGC",
+        "Portfolio visuel et épuré pour créateurs de contenu. Catégories, tarifs, équipement et témoignages.": "معرض بصري وأنيق للمنشئين. يحتوي على فئات، أسعار، معدات، وشهادات عملاء.",
+        "Aperçu : Hub Services Numériques": "معاينة: مركز الخدمات الرقمية",
+        "Hub Services Numériques": "مركز الخدمات الرقمية",
+        "Modèle multi-services pour agences UGC. Sections par plateforme (FB, IG, TikTok) et témoignages clients.": "نموذج متعدد الخدمات للوكالات. أقسام حسب المنصات (فيسبوك، إنستغرام، تيك توك) وشهادات العملاء.",
+        "Aperçu : Atlas Créations": "معاينة: أطلس للإبداع",
+        "Atlas Créations": "أطلس للإبداع",
+        "Plateforme culturelle mettant en valeur les artistes marocains à travers du contenu généré par la communauté.": "منصة ثقافية تُبرز الفنانين المغاربة من خلال محتوى يُنتجه المجتمع.",
+        "Aperçu : Profil Créateur UGC": "معاينة: ملف منشئ المحتوى",
+        "Profil Créateur UGC": "ملف منشئ المحتوى",
+        "Modèle de branding personnel pour créateurs UGC. Statistiques, témoignages, et packages de services.": "نموذج هوية شخصية للمنشئين. يحتوي على إحصائيات، شهادات، وعروض الخدمات.",
+        "Aperçu : Agence UGC Bilingue": "معاينة: وكالة UGC ثنائية اللغة",
+        "Agence UGC Bilingue": "وكالة UGC ثنائية اللغة",
+        "Modèle bilingue (français/arabe) conçu pour les agences ciblant le marché nord-africain.": "نموذج ثنائي اللغة (فرنسي/عربي) مصمم للوكالات التي تستهدف السوق المغاربي.",
+        "Aperçu : Campagne Beauté UGC": "معاينة: حملة الجمال",
+        "Campagne Beauté UGC": "حملة الجمال UGC",
+        "Page dédiée aux marques de beauté avec aperçus vidéo, statistiques de conversion et témoignages.": "صفحة مخصصة لعلامات التجميل مع معاينات فيديو، إحصائيات تحويل، وشهادات.",
+        "Aperçu : UGC Food & Lifestyle": "معاينة: أسلوب الحياة والط الطعام",
+        "Food & Lifestyle UGC": "الطعام وأسلوب الحياة UGC",
+        "Modèle vibrant pour créateurs spécialisés en food et lifestyle. Contenu organisé par catégories thématiques.": "نموذج حيوي للمنشئين المتخصصين في الطعام وأسلوب الحياة. محتوى منظم حسب الفئات الموضوعية.",
+        "Obtenez Votre Modèle Aujourd’hui": "احصل على نموذجك اليوم",
+        "Prêt à booster votre marque avec un modèle UGC performant ? Contactez-nous dès maintenant !": "مستعد لتعزيز علامتك بنموذج UGC فعّال؟ تواصل معنا الآن!",
+        "Me Contacter": "اتصل بي",
+        "&copy; 2024 Portfolio de Modèles UGC. Conçu pour GitHub Pages.": "&copy; 2024 معرض نماذج المحتوى. مصمم لموقع GitHub Pages.",
+        "Contact : ": "الاتصال: "
+      }
+    };
+
+    function switchLanguage(lang) {
+      document.body.setAttribute('lang', lang);
+      document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+      document.querySelectorAll('[data-fr]').forEach(el => {
+        el.textContent = translations[lang][el.dataset.fr] || el.dataset.fr;
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        switchLanguage(btn.dataset.lang);
+      });
+    });
+  </script>
+</body>
+</html>
